@@ -20,8 +20,8 @@ BBB_SRC_FOLDER=$HOME/$NAME/bigbluebutton
 ## Download the certificates
 ```
 mkdir $HOME/$NAME/certs/ -p
-wget http://a.bbbvm.imdt.com.br/certs/fullchain.pem -O $HOME/$NAME/certs/fullchain.pem
-wget http://a.bbbvm.imdt.com.br/certs/privkey.pem -O $HOME/$NAME/certs/privkey.pem
+wget CERTIFICATES_URL/fullchain.pem -O $HOME/$NAME/certs/fullchain.pem
+wget CERTIFICATES_URL/privkey.pem -O $HOME/$NAME/certs/privkey.pem
 ```
 
 ## Create the container ( version 2.2 )
