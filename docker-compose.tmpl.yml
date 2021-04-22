@@ -126,11 +126,11 @@ services:
     volumes:
       - bigbluebutton:/var/bigbluebutton
       - html5-static:/html5-static:ro
-      - ${DEFAULT_PRESENTATION:-/dev/null}:/etc/nginx/html/default.pdf
+      - ${DEFAULT_PRESENTATION:-/dev/null}:/www/default.pdf
     network_mode: host
     extra_hosts:
       - "host.docker.internal:10.7.7.1"
-      - "core:10.7.7.2"
+      - "bbb-web:10.7.7.2"
       - "etherpad:10.7.7.4"
       - "webrtc-sfu:10.7.7.10"
       - "html5:10.7.7.11"
@@ -147,7 +147,7 @@ services:
         ipv4_address: 10.7.7.4
 
   redis:
-    image: redis:6.0-alpine
+    image: redis:6.2-alpine
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
@@ -175,7 +175,7 @@ services:
         ipv4_address: 10.7.7.6
 
   kurento:
-    image: kurento/kurento-media-server:6.15
+    image: kurento/kurento-media-server:6.16
     restart: unless-stopped
     environment: 
       KMS_STUN_IP: ${STUN_IP}
